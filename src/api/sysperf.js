@@ -65,9 +65,6 @@ router.post('/new', async (req, res) => {
         value.Network.IPv6 = true;
     }
 
-    // Remove khz from CPU speed
-    value.Hardware.CPU.Speed = value.Hardware.CPU.Speed.toFixed(0);
-
     let id = randomstring.generate({
         length: 16,
         charset: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
