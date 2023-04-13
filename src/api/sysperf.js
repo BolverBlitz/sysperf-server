@@ -15,9 +15,9 @@ const PluginDocs = '';
 const sysperfInput = Joi.object({
     'Hardware': Joi.object({
         'CPU': Joi.object({
-            'Model': Joi.string().required(),
-            'Cores': Joi.number().max(2147483647).min(0).required(),
-            'Speed': Joi.number().max(2147483647).min(0).required(),
+            'Model': Joi.string().empty(['', null]).default('EMPTY'),
+            'Cores': Joi.number().empty(['', null]).default('EMPTY').max(2147483647).min(0),
+            'Speed': Joi.number().empty(['', null]).default('EMPTY').max(2147483647).min(0),
         }).required(),
         'RAM': Joi.object({
             'Total': Joi.number().max(9223372036854775807).min(0).required(),
