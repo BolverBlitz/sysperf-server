@@ -15,9 +15,9 @@ const PluginDocs = '';
 const sysperfInput = Joi.object({
     'Hardware': Joi.object({
         'CPU': Joi.object({
-            'Model': Joi.string().empty(['', null]).default('EMPTY'),
-            'Cores': Joi.number().empty(['', null]).default('EMPTY').max(2147483647).min(0),
-            'Speed': Joi.number().empty(['', null]).default('EMPTY').max(2147483647).min(0),
+            'Model': Joi.string().empty(['', null]).default(0),
+            'Cores': Joi.number().empty(['', null]).default(0).max(2147483647).min(0),
+            'Speed': Joi.number().empty(['', null]).default(0).max(2147483647).min(0),
         }).required(),
         'RAM': Joi.object({
             'Total': Joi.number().max(9223372036854775807).min(0).required(),
@@ -45,11 +45,11 @@ const sysperfInput = Joi.object({
             'URL': Joi.string().required().regex(/https:\/\/browser\.geekbench\.com\/v5\/cpu\/\d+/),
         }).required(),
         'IO': Joi.object({
-            'Sequential_1': Joi.number().max(2147483647).min(0).required(),
-            'Sequential_2': Joi.number().max(2147483647).min(0).required(),
-            'Sequential_3': Joi.number().max(2147483647).min(0).required(),
-            'iops_read': Joi.number().max(2147483647).min(0).required(),
-            'iops_write': Joi.number().max(2147483647).min(0).required(),
+            'Sequential_1': Joi.number().max(2147483647).min(0).empty(['', null]).default(0),
+            'Sequential_2': Joi.number().max(2147483647).min(0).empty(['', null]).default(0),
+            'Sequential_3': Joi.number().max(2147483647).min(0).empty(['', null]).default(0),
+            'iops_read': Joi.number().max(2147483647).min(0).empty(['', null]).default(0),
+            'iops_write': Joi.number().max(2147483647).min(0).empty(['', null]).default(0),
         }).required(),
     }).required(),
 });
